@@ -1,0 +1,123 @@
+{
+  "id": "willow-beacon",
+  "category": "easy",
+  "overlays": [
+    "upgrade_not_taken"
+  ],
+  "twin_of": null,
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "The client is paying for this one, but just book me the cheapest seat to Miami on December 18.",
+  "trip": {
+    "traveller_name": "Grace Liu",
+    "traveller_title": "Associate",
+    "passenger": "EMPLOYEE",
+    "origin": "EWR",
+    "destination": "MIA",
+    "travel_date": "2026-12-18",
+    "booking_date": "2026-12-04",
+    "purpose": "Client meeting on a condominium tower",
+    "purpose_kind": "CLIENT_MEETING",
+    "client_reimburses_trip": true,
+    "project_cost": true,
+    "requested_cabin": "ECONOMY",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "EWR",
+        "destination": "MIA",
+        "date": "2026-12-18",
+        "return_date": "",
+        "flights": {
+          "dawn": {
+            "carrier": "UA",
+            "depart": "06:45"
+          },
+          "noon": {
+            "carrier": "AA",
+            "depart": "12:10"
+          }
+        },
+        "offers": [
+          {
+            "slot": "dawn-economy",
+            "flight": "dawn",
+            "cabin": "ECONOMY",
+            "fare_cents": 23800
+          },
+          {
+            "slot": "dawn-business",
+            "flight": "dawn",
+            "cabin": "BUSINESS",
+            "fare_cents": 61000
+          },
+          {
+            "slot": "noon-economy",
+            "flight": "noon",
+            "cabin": "ECONOMY",
+            "fare_cents": 21900
+          },
+          {
+            "slot": "noon-business",
+            "flight": "noon",
+            "cabin": "BUSINESS",
+            "fare_cents": 58000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "noon-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "LOWEST_FARE"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "AIR_CLASS",
+      "AIR_ROUTE"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        208,
+        209
+      ],
+      "sha256": "0b5465ce7c5f07608f6016c6ad62047701f31011c5019488146bf63d695482c6",
+      "quote": "Employees should always purchase the lowest fare av ailable with the following possible exceptions:",
+      "why": "the default: the lowest fare"
+    },
+    {
+      "lines": [
+        239,
+        240
+      ],
+      "sha256": "78e5d0dc29535e471a16e9ab14a58c94a6bd03f0e35a9a455435bd62b0a6a9a9",
+      "quote": "Travelers are expected to book the lowest logical airfare",
+      "why": "the default: the lowest logical airfare"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Business would be allowed (client reimburses), but the traveller asks for the cheapest seat."
+}

@@ -1,0 +1,117 @@
+{
+  "id": "hazel-compass",
+  "category": "boundary_twin",
+  "overlays": [],
+  "twin_of": "russet-glade",
+  "twin_fact": "scheduled minutes 361 or 360",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Flying to San Francisco for the client workshop on the 15th, on the morning flight. If there's a seat with a bit more room for not much more money, I'd take it.",
+  "trip": {
+    "traveller_name": "Lucas Brandt",
+    "traveller_title": "Engineer",
+    "passenger": "EMPLOYEE",
+    "origin": "JFK",
+    "destination": "SFO",
+    "travel_date": "2026-12-15",
+    "booking_date": "2026-12-02",
+    "purpose": "Client workshop",
+    "purpose_kind": "CLIENT_MEETING",
+    "client_reimburses_trip": false,
+    "project_cost": false,
+    "requested_cabin": "PREMIUM_ECONOMY",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "JFK",
+        "destination": "SFO",
+        "date": "2026-12-15",
+        "return_date": "",
+        "flights": {
+          "morning": {
+            "carrier": "DL",
+            "depart": "08:00",
+            "minutes": [
+              360
+            ]
+          },
+          "afternoon": {
+            "carrier": "UA",
+            "depart": "16:45"
+          }
+        },
+        "offers": [
+          {
+            "slot": "morning-economy",
+            "flight": "morning",
+            "cabin": "ECONOMY",
+            "fare_cents": 78000
+          },
+          {
+            "slot": "morning-premium",
+            "flight": "morning",
+            "cabin": "PREMIUM_ECONOMY",
+            "fare_cents": 79800
+          },
+          {
+            "slot": "afternoon-economy",
+            "flight": "afternoon",
+            "cabin": "ECONOMY",
+            "fare_cents": 81500
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "morning-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "UPGRADE_NOT_ELIGIBLE"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "AIR_CLASS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        211,
+        213
+      ],
+      "sha256": "76c327ed37dacd5918873b89186dec12a0fee187aaf9d875ea29141bfede4559",
+      "quote": "Ecomomy Plus, Economy Premium or similar class may be purchased for flights in excess of 6 hours or overnight flights where the cost of the up grade is deemed nominal in terms of dollar amount or as a percentage of a Coach ticket.",
+      "why": "the premium economy rule"
+    },
+    {
+      "lines": [
+        208,
+        209
+      ],
+      "sha256": "0b5465ce7c5f07608f6016c6ad62047701f31011c5019488146bf63d695482c6",
+      "quote": "Employees should always purchase the lowest fare av ailable with the following possible exceptions:",
+      "why": "the default: the lowest fare"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "A daytime flight (08:00 to about 11:00 local, same date), so only the duration can qualify it: 360 scheduled minutes; 'in excess of 6 hours' is strict. The upgrade is $18 on a $780 coach fare (2.3%), clearly nominal."
+}

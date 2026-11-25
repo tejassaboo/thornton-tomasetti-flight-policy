@@ -1,0 +1,122 @@
+{
+  "id": "fjord-pebble",
+  "category": "easy",
+  "overlays": [
+    "dearer_option"
+  ],
+  "twin_of": null,
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "The client is covering this trip under our contract, so please book me business class to London on December 7 for the facade inspection.",
+  "trip": {
+    "traveller_name": "Omar Haddad",
+    "traveller_title": "Senior Associate",
+    "passenger": "EMPLOYEE",
+    "origin": "JFK",
+    "destination": "LHR",
+    "travel_date": "2026-12-07",
+    "booking_date": "2026-12-01",
+    "purpose": "Facade inspection for a client",
+    "purpose_kind": "PROJECT_SITE_WORK",
+    "client_reimburses_trip": true,
+    "project_cost": true,
+    "requested_cabin": "BUSINESS",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "JFK",
+        "destination": "LHR",
+        "date": "2026-12-07",
+        "return_date": "",
+        "flights": {
+          "eve": {
+            "carrier": "BA",
+            "depart": "18:30"
+          },
+          "late": {
+            "carrier": "VS",
+            "depart": "21:00"
+          }
+        },
+        "offers": [
+          {
+            "slot": "eve-economy",
+            "flight": "eve",
+            "cabin": "ECONOMY",
+            "fare_cents": 62000
+          },
+          {
+            "slot": "eve-business",
+            "flight": "eve",
+            "cabin": "BUSINESS",
+            "fare_cents": 395000
+          },
+          {
+            "slot": "late-economy",
+            "flight": "late",
+            "cabin": "ECONOMY",
+            "fare_cents": 66000
+          },
+          {
+            "slot": "late-business",
+            "flight": "late",
+            "cabin": "BUSINESS",
+            "fare_cents": 430000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "eve-business"
+    ],
+    "cabins": [
+      "BUSINESS"
+    ],
+    "reason_codes": [
+      "CLIENT_REIMBURSABLE"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "AIR_CLASS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        215,
+        215
+      ],
+      "sha256": "8fef61291e46048a81dd77cfb7c73049bb5ebbed683b7cbf0c97a44b6fe89d34",
+      "quote": "Business or similar class may be purchased under any of the following conditions:",
+      "why": "any one condition is enough"
+    },
+    {
+      "lines": [
+        216,
+        216
+      ],
+      "sha256": "7bc3b93f83f063233980d0007ec1e1f375846beac45aec1c7de7e287ef37c4d9",
+      "quote": "The cost of the trip is reimbursable by a client",
+      "why": "client-reimbursed trip"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Client-reimbursed trip: business allowed; the cheaper business offer."
+}

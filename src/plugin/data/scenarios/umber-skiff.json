@@ -1,0 +1,149 @@
+{
+  "id": "umber-skiff",
+  "category": "multi_rule",
+  "overlays": [
+    "dearer_option"
+  ],
+  "twin_of": null,
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "A balcony collapsed overnight at one of our Miami buildings and the city needs our engineer on site tomorrow, the 5th. Coach is completely sold out tomorrow. My supervisor has pre-approved whatever it takes; please book the earliest flight you can.",
+  "trip": {
+    "traveller_name": "Aisha Karim",
+    "traveller_title": "Forensic Engineer",
+    "passenger": "EMPLOYEE",
+    "origin": "JFK",
+    "destination": "MIA",
+    "travel_date": "2026-12-05",
+    "booking_date": "2026-12-04",
+    "purpose": "Emergency structural assessment after a collapse",
+    "purpose_kind": "PROJECT_SITE_WORK",
+    "client_reimburses_trip": false,
+    "project_cost": false,
+    "requested_cabin": "BUSINESS",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": true,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [
+      {
+        "role": "SUPERVISOR",
+        "name": "Tom Becker",
+        "subject": "CABIN_UPGRADE",
+        "extra_fare_judged_reasonable": true
+      }
+    ],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "JFK",
+        "destination": "MIA",
+        "date": "2026-12-05",
+        "return_date": "",
+        "flights": {
+          "first": {
+            "carrier": "AA",
+            "depart": "06:30"
+          },
+          "second": {
+            "carrier": "DL",
+            "depart": "10:15"
+          },
+          "third": {
+            "carrier": "AA",
+            "depart": "15:50"
+          }
+        },
+        "offers": [
+          {
+            "slot": "first-economy",
+            "flight": "first",
+            "cabin": "ECONOMY",
+            "fare_cents": 31000,
+            "seats": false
+          },
+          {
+            "slot": "first-business",
+            "flight": "first",
+            "cabin": "BUSINESS",
+            "fare_cents": 124000
+          },
+          {
+            "slot": "second-economy",
+            "flight": "second",
+            "cabin": "ECONOMY",
+            "fare_cents": 29500,
+            "seats": false
+          },
+          {
+            "slot": "second-business",
+            "flight": "second",
+            "cabin": "BUSINESS",
+            "fare_cents": 139000
+          },
+          {
+            "slot": "third-economy",
+            "flight": "third",
+            "cabin": "ECONOMY",
+            "fare_cents": 33000,
+            "seats": false
+          },
+          {
+            "slot": "third-business",
+            "flight": "third",
+            "cabin": "BUSINESS",
+            "fare_cents": 152000
+          }
+        ],
+        "background": 0
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "first-business"
+    ],
+    "cabins": [
+      "BUSINESS"
+    ],
+    "reason_codes": [
+      "NO_ECONOMY_SEATS_URGENT"
+    ],
+    "approvers": [
+      "SUPERVISOR"
+    ],
+    "clauses": [
+      "AIR_CLASS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        215,
+        215
+      ],
+      "sha256": "8fef61291e46048a81dd77cfb7c73049bb5ebbed683b7cbf0c97a44b6fe89d34",
+      "quote": "Business or similar class may be purchased under any of the following conditions:",
+      "why": "any one condition is enough"
+    },
+    {
+      "lines": [
+        223,
+        224
+      ],
+      "sha256": "42103b3f81b477fe3657e4a4ed79cdae9ee847d9b6263af0b5af3a8417b4c3e7",
+      "quote": "There are no seats available in coach class and th e trip is of an urgent nature and cannot be postponed (must be pre-approved by employee's supervisor)",
+      "why": "no coach seats, urgent, supervisor pre-approval"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "No coach seats on the date, an urgent trip that cannot be postponed, and the supervisor's pre-approval: business allowed, the cheapest business offer (also the earliest). The 10% window is measured against the lowest priced fare, the sold-out $295 coach fare, so it does not apply."
+}

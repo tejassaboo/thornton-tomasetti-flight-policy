@@ -1,0 +1,124 @@
+{
+  "id": "marble-canopy",
+  "category": "multi_rule",
+  "overlays": [
+    "dearer_option"
+  ],
+  "twin_of": null,
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I need to be at the Houston hospital site on the 9th for the concrete pour inspection. The 7 am flight gets me there to inspect the same afternoon. If I take the evening flight the pour slips a day, and we pay the crew overtime plus another hotel night; the project manager puts that at about $310. Coach is sold out on the morning flight but business still has seats.",
+  "trip": {
+    "traveller_name": "Daniel Brooks",
+    "traveller_title": "Field Engineer",
+    "passenger": "EMPLOYEE",
+    "origin": "LGA",
+    "destination": "IAH",
+    "travel_date": "2026-12-09",
+    "booking_date": "2026-12-04",
+    "purpose": "Concrete pour inspection at a hospital site",
+    "purpose_kind": "PROJECT_SITE_WORK",
+    "client_reimburses_trip": false,
+    "project_cost": true,
+    "requested_cabin": "BUSINESS",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 31000,
+    "sign_offs": [],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "LGA",
+        "destination": "IAH",
+        "date": "2026-12-09",
+        "return_date": "",
+        "flights": {
+          "early": {
+            "carrier": "UA",
+            "depart": "07:00"
+          },
+          "evening": {
+            "carrier": "UA",
+            "depart": "17:15"
+          }
+        },
+        "offers": [
+          {
+            "slot": "early-economy",
+            "flight": "early",
+            "cabin": "ECONOMY",
+            "fare_cents": 41000,
+            "seats": false
+          },
+          {
+            "slot": "early-business",
+            "flight": "early",
+            "cabin": "BUSINESS",
+            "fare_cents": 68000
+          },
+          {
+            "slot": "evening-economy",
+            "flight": "evening",
+            "cabin": "ECONOMY",
+            "fare_cents": 44000
+          },
+          {
+            "slot": "evening-business",
+            "flight": "evening",
+            "cabin": "BUSINESS",
+            "fare_cents": 79000
+          }
+        ],
+        "background": 0
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "early-business"
+    ],
+    "cabins": [
+      "BUSINESS"
+    ],
+    "reason_codes": [
+      "COST_SAVINGS"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "AIR_CLASS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        215,
+        215
+      ],
+      "sha256": "8fef61291e46048a81dd77cfb7c73049bb5ebbed683b7cbf0c97a44b6fe89d34",
+      "quote": "Business or similar class may be purchased under any of the following conditions:",
+      "why": "any one condition is enough"
+    },
+    {
+      "lines": [
+        220,
+        222
+      ],
+      "sha256": "1a73b16a832e64648ca9ee5e87ce1b5a8e45f5f48e0b3a2e5678af3b5e318adc",
+      "quote": "The use results in an overall cost savings to the company by avoiding additional subsistence costs, overtime, or lost productive tim e while awaiting coach-class accommodations",
+      "why": "overall cost savings"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Business costs $240 more than the cheapest ticket that can be bought ($680 against $440) and avoids $310 of overtime and subsistence: an overall saving. Not urgent (no pre-approval route), and business is 65.9% over the lowest priced fare, so the 10% window does not apply."
+}

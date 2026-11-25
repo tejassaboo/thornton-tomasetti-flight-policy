@@ -1,0 +1,127 @@
+{
+  "id": "velvet-prairie",
+  "category": "flag",
+  "overlays": [
+    "synonym",
+    "overnight",
+    "unclear_phrase"
+  ],
+  "twin_of": "indigo-meadow",
+  "twin_fact": "premium fare 82900 or 106000 cents",
+  "flag_twins": [
+    "russet-glade",
+    "indigo-meadow"
+  ],
+  "ambiguity_note": {
+    "phrase": "deemed nominal",
+    "readings": [
+      "$189 (29.5%) is nominal: book premium economy",
+      "$189 (29.5%) is not nominal: book coach"
+    ]
+  },
+  "request": "I'm heading to London overnight on the 16th for the Battersea project kickoff. Could you get me one of those seats with extra legroom on the evening flight?",
+  "trip": {
+    "traveller_name": "Noah Fischer",
+    "traveller_title": "Project Manager",
+    "passenger": "EMPLOYEE",
+    "origin": "JFK",
+    "destination": "LHR",
+    "travel_date": "2026-12-16",
+    "booking_date": "2026-12-01",
+    "purpose": "Project kickoff in London",
+    "purpose_kind": "PROJECT_SITE_WORK",
+    "client_reimburses_trip": false,
+    "project_cost": true,
+    "requested_cabin": "PREMIUM_ECONOMY",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "JFK",
+        "destination": "LHR",
+        "date": "2026-12-16",
+        "return_date": "",
+        "flights": {
+          "evening": {
+            "carrier": "VS",
+            "depart": "21:30",
+            "minutes": [
+              420
+            ]
+          },
+          "morning": {
+            "carrier": "BA",
+            "depart": "08:15"
+          }
+        },
+        "offers": [
+          {
+            "slot": "evening-economy",
+            "flight": "evening",
+            "cabin": "ECONOMY",
+            "fare_cents": 64000
+          },
+          {
+            "slot": "evening-premium",
+            "flight": "evening",
+            "cabin": "PREMIUM_ECONOMY",
+            "fare_cents": 82900
+          },
+          {
+            "slot": "morning-economy",
+            "flight": "morning",
+            "cabin": "ECONOMY",
+            "fare_cents": 71000
+          },
+          {
+            "slot": "morning-business",
+            "flight": "morning",
+            "cabin": "BUSINESS",
+            "fare_cents": 380000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "FLAG_FOR_APPROVAL",
+    "offer_slots": [
+      "evening-premium"
+    ],
+    "cabins": [
+      "PREMIUM_ECONOMY"
+    ],
+    "reason_codes": [
+      "UNCLEAR_POLICY_TEXT"
+    ],
+    "approvers": [
+      "NOT_NAMED"
+    ],
+    "clauses": [
+      "AIR_CLASS"
+    ],
+    "unclear_phrase": "deemed nominal"
+  },
+  "must_keep": [
+    {
+      "lines": [
+        211,
+        213
+      ],
+      "sha256": "76c327ed37dacd5918873b89186dec12a0fee187aaf9d875ea29141bfede4559",
+      "quote": "Ecomomy Plus, Economy Premium or similar class may be purchased for flights in excess of 6 hours or overnight flights where the cost of the up grade is deemed nominal in terms of dollar amount or as a percentage of a Coach ticket.",
+      "why": "the premium economy rule"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "The flight qualifies (overnight, 420 minutes). The upgrade is $189 on a $640 coach fare (29.5%); the handbook never defines 'nominal', and two readers can disagree here. Hold the premium seat."
+}

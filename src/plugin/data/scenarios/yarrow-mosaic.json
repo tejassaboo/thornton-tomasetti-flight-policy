@@ -1,0 +1,140 @@
+{
+  "id": "yarrow-mosaic",
+  "category": "boundary_twin",
+  "overlays": [],
+  "twin_of": "basalt-ferry",
+  "twin_fact": "scheduled minutes 481 or 480",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I'm flying back from London to New York on the 14th and going straight from the airport into the client's design review, so I really need to sleep on the plane. Graham signed off on business class for this; it's in the system.",
+  "trip": {
+    "traveller_name": "Priya Raman",
+    "traveller_title": "Senior Project Engineer",
+    "passenger": "EMPLOYEE",
+    "origin": "LHR",
+    "destination": "JFK",
+    "travel_date": "2026-12-14",
+    "booking_date": "2026-12-04",
+    "purpose": "Client design review on arrival",
+    "purpose_kind": "CLIENT_MEETING",
+    "client_reimburses_trip": false,
+    "project_cost": false,
+    "requested_cabin": "BUSINESS",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": true,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [
+      {
+        "role": "MANAGING_PRINCIPAL",
+        "name": "Graham Holt",
+        "subject": "CABIN_UPGRADE",
+        "extra_fare_judged_reasonable": true
+      }
+    ],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "LHR",
+        "destination": "JFK",
+        "date": "2026-12-14",
+        "return_date": "",
+        "flights": {
+          "noon": {
+            "carrier": "BA",
+            "depart": "11:20",
+            "minutes": [
+              480
+            ]
+          },
+          "late": {
+            "carrier": "VS",
+            "depart": "15:40"
+          }
+        },
+        "offers": [
+          {
+            "slot": "noon-economy",
+            "flight": "noon",
+            "cabin": "ECONOMY",
+            "fare_cents": 69000
+          },
+          {
+            "slot": "noon-business",
+            "flight": "noon",
+            "cabin": "BUSINESS",
+            "fare_cents": 412000
+          },
+          {
+            "slot": "late-economy",
+            "flight": "late",
+            "cabin": "ECONOMY",
+            "fare_cents": 72500
+          },
+          {
+            "slot": "late-business",
+            "flight": "late",
+            "cabin": "BUSINESS",
+            "fare_cents": 455000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "noon-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "LONG_FLIGHT_CONDITION_NOT_MET",
+      "UPGRADE_NOT_ELIGIBLE"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "AIR_CLASS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        215,
+        215
+      ],
+      "sha256": "8fef61291e46048a81dd77cfb7c73049bb5ebbed683b7cbf0c97a44b6fe89d34",
+      "quote": "Business or similar class may be purchased under any of the following conditions:",
+      "why": "any one condition is enough"
+    },
+    {
+      "lines": [
+        226,
+        233
+      ],
+      "sha256": "c38c0fc9c164f8e16fa1d720e6da06891386d8efdcd534043084008038c3f822",
+      "quote": " If approved by the Managing Principal in charge of the Region, Practice or Support Dept., or the Vice President in charge if a project cost, where o The cost of the upgrade is not deemed excessive an d; o The scheduled time of the flight is in excess of 8 hours, and  The trip is for a client meeting and the seat loca tion is necessary for the employee to receive the maximum rest or  The employee has traveled on flights of this lengt h at least once in the past 30 days.",
+      "why": "the long-flight condition"
+    },
+    {
+      "lines": [
+        208,
+        209
+      ],
+      "sha256": "0b5465ce7c5f07608f6016c6ad62047701f31011c5019488146bf63d695482c6",
+      "quote": "Employees should always purchase the lowest fare av ailable with the following possible exceptions:",
+      "why": "the default: the lowest fare"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Client meeting needing rest, the Managing Principal's sign-off recording the extra fare as reasonable; the cheapest business flight is scheduled 480 minutes. 'in excess of 8 hours' is strict: 481 qualifies, 480 does not."
+}

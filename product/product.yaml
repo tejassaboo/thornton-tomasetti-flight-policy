@@ -1,0 +1,13 @@
+_ > nanoagent.plugin.v0001.ProductConfig:
+tagline: "One flight request, the firm's real travel handbook: book it, refuse it, or hold it for sign-off"
+summary: "An agent handles one traveller's flight request under Thornton Tomasetti's Travel and Business Expense Policy (October 2019), read verbatim. It reads the trip record, searches a simulated flight world (real airports and airlines, synthetic schedules and fares) and submits a decision with the offer, cabin, reason, approver and handbook section. A deterministic verifier rebuilds the offers and the handbook's answer itself and checks every field. Twenty-four cases cover fare windows to the cent, scheduled minutes on both sides of each limit, approvals from the wrong person, companions and personal side trips, and the handbook's own unclear words."
+highlights:
+  - "The verbatim handbook: no paraphrase, no rules restated in the task"
+  - "Exact boundaries: 110% to the cent, 480 against 481 scheduled minutes, 360 against 361"
+  - "Unclear clauses become holds for approval, each once, with clear twins on both sides"
+  - "Fully offline: a hash-seeded flight world with unguessable offer ids"
+steps:
+  - "Name a case, for example amber-quay, with the traveller's request"
+  - "The agent reads the trip record and searches flights on the trip's route and date"
+  - "It submits BOOK, REFUSE or FLAG_FOR_APPROVAL with the offer, cabin, reason, approver and section"
+  - "The verifier recomputes the handbook's answer and checks every field"

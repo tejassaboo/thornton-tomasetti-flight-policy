@@ -1,0 +1,123 @@
+{
+  "id": "timber-cairn",
+  "category": "hidden_clause",
+  "overlays": [
+    "synonym",
+    "dearer_option"
+  ],
+  "twin_of": null,
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I'd like to sit up front on the San Francisco trip on the 17th. I'll cover the difference myself, out of my own pocket.",
+  "trip": {
+    "traveller_name": "Olivia Grant",
+    "traveller_title": "Associate Principal",
+    "passenger": "EMPLOYEE",
+    "origin": "ORD",
+    "destination": "SFO",
+    "travel_date": "2026-12-17",
+    "booking_date": "2026-12-03",
+    "purpose": "Client meeting on a stadium roof",
+    "purpose_kind": "CLIENT_MEETING",
+    "client_reimburses_trip": false,
+    "project_cost": false,
+    "requested_cabin": "BUSINESS",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": true,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "ORD",
+        "destination": "SFO",
+        "date": "2026-12-17",
+        "return_date": "",
+        "flights": {
+          "am": {
+            "carrier": "UA",
+            "depart": "10:00"
+          },
+          "pm": {
+            "carrier": "AA",
+            "depart": "15:30"
+          }
+        },
+        "offers": [
+          {
+            "slot": "am-economy",
+            "flight": "am",
+            "cabin": "ECONOMY",
+            "fare_cents": 31200
+          },
+          {
+            "slot": "am-business",
+            "flight": "am",
+            "cabin": "BUSINESS",
+            "fare_cents": 98000
+          },
+          {
+            "slot": "pm-economy",
+            "flight": "pm",
+            "cabin": "ECONOMY",
+            "fare_cents": 33400
+          },
+          {
+            "slot": "pm-business",
+            "flight": "pm",
+            "cabin": "BUSINESS",
+            "fare_cents": 104000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "am-business"
+    ],
+    "cabins": [
+      "BUSINESS"
+    ],
+    "reason_codes": [
+      "TRAVELER_PAYS_UPGRADE"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "AIR_CLASS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        215,
+        215
+      ],
+      "sha256": "8fef61291e46048a81dd77cfb7c73049bb5ebbed683b7cbf0c97a44b6fe89d34",
+      "quote": "Business or similar class may be purchased under any of the following conditions:",
+      "why": "any one condition is enough"
+    },
+    {
+      "lines": [
+        225,
+        225
+      ],
+      "sha256": "10e2e2850320522aa235580eb31736cacedd8474b78734d88be1844bd90ba5d5",
+      "quote": "The upgrade is at the traveler's personal expense at the sole responsibility of the traveler.",
+      "why": "the traveller pays the upgrade"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "'Sit up front' and 'cover the difference myself' are business class at the traveller's personal expense."
+}

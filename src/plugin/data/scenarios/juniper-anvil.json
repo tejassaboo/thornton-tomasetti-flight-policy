@@ -1,0 +1,129 @@
+{
+  "id": "juniper-anvil",
+  "category": "easy",
+  "overlays": [
+    "dearer_option"
+  ],
+  "twin_of": null,
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "After my back surgery my doctor says I can't sit upright for a whole cross-country flight. My supervisor already approved business class for me. Please book it for my Los Angeles trip on the 12th.",
+  "trip": {
+    "traveller_name": "Victor Alvarez",
+    "traveller_title": "Principal",
+    "passenger": "EMPLOYEE",
+    "origin": "BOS",
+    "destination": "LAX",
+    "travel_date": "2026-12-12",
+    "booking_date": "2026-12-02",
+    "purpose": "Client design review",
+    "purpose_kind": "CLIENT_MEETING",
+    "client_reimburses_trip": false,
+    "project_cost": false,
+    "requested_cabin": "BUSINESS",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": true,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [
+      {
+        "role": "SUPERVISOR",
+        "name": "Marcus Lee",
+        "subject": "CABIN_UPGRADE",
+        "extra_fare_judged_reasonable": true
+      }
+    ],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "BOS",
+        "destination": "LAX",
+        "date": "2026-12-12",
+        "return_date": "",
+        "flights": {
+          "am": {
+            "carrier": "DL",
+            "depart": "09:05"
+          },
+          "pm": {
+            "carrier": "AA",
+            "depart": "14:20"
+          }
+        },
+        "offers": [
+          {
+            "slot": "am-economy",
+            "flight": "am",
+            "cabin": "ECONOMY",
+            "fare_cents": 38500
+          },
+          {
+            "slot": "am-business",
+            "flight": "am",
+            "cabin": "BUSINESS",
+            "fare_cents": 142000
+          },
+          {
+            "slot": "pm-economy",
+            "flight": "pm",
+            "cabin": "ECONOMY",
+            "fare_cents": 36200
+          },
+          {
+            "slot": "pm-business",
+            "flight": "pm",
+            "cabin": "BUSINESS",
+            "fare_cents": 155000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "am-business"
+    ],
+    "cabins": [
+      "BUSINESS"
+    ],
+    "reason_codes": [
+      "MEDICAL_NEED"
+    ],
+    "approvers": [
+      "SUPERVISOR"
+    ],
+    "clauses": [
+      "AIR_CLASS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        215,
+        215
+      ],
+      "sha256": "8fef61291e46048a81dd77cfb7c73049bb5ebbed683b7cbf0c97a44b6fe89d34",
+      "quote": "Business or similar class may be purchased under any of the following conditions:",
+      "why": "any one condition is enough"
+    },
+    {
+      "lines": [
+        218,
+        219
+      ],
+      "sha256": "7e1c919c54cda96b93f341fe17ed79c8dd738c2153e7962c21ffde2d5e49a939",
+      "quote": "Disability or special needs of an employee (must b e pre-approved by employee's supervisor)",
+      "why": "special needs, supervisor pre-approval"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Special need on file and the supervisor's pre-approval: business allowed; book the cheaper business offer."
+}

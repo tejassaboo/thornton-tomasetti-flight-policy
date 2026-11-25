@@ -1,0 +1,119 @@
+{
+  "id": "pewter-delta",
+  "category": "refusal",
+  "overlays": [
+    "multi_traveller",
+    "outside_air_section"
+  ],
+  "twin_of": null,
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Please book my husband, Daniel, on my flight to London on the 19th. I'm already booked; he's coming along for the week.",
+  "trip": {
+    "traveller_name": "Daniel Okafor",
+    "traveller_title": "Spouse of an employee (Ngozi Okafor, Principal)",
+    "passenger": "SPOUSE_OR_FAMILY",
+    "origin": "JFK",
+    "destination": "LHR",
+    "travel_date": "2026-12-19",
+    "booking_date": "2026-12-05",
+    "purpose": "Accompanying the employee on her business trip",
+    "purpose_kind": "INTERNAL_MEETING",
+    "client_reimburses_trip": false,
+    "project_cost": false,
+    "requested_cabin": "ECONOMY",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "JFK",
+        "destination": "LHR",
+        "date": "2026-12-19",
+        "return_date": "",
+        "flights": {
+          "eve": {
+            "carrier": "BA",
+            "depart": "19:10"
+          },
+          "late": {
+            "carrier": "VS",
+            "depart": "22:05"
+          }
+        },
+        "offers": [
+          {
+            "slot": "eve-economy",
+            "flight": "eve",
+            "cabin": "ECONOMY",
+            "fare_cents": 61000
+          },
+          {
+            "slot": "late-economy",
+            "flight": "late",
+            "cabin": "ECONOMY",
+            "fare_cents": 58500
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "REFUSE",
+    "offer_slots": [],
+    "cabins": [
+      "NONE"
+    ],
+    "reason_codes": [
+      "COMPANION_NOT_COVERED"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "PERSONAL_TRAVEL",
+      "NOT_REIMBURSABLE"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        459,
+        461
+      ],
+      "sha256": "2dc19f2aa9de0de11e21705c9656acbbaae0c671291dbfb65c9f207783f91acf",
+      "quote": "A spouse or other individual may accompany an emplo yee on a business trip at the employee's expense. The employee will be responsible for any a nd all incremental expenses (airfare,",
+      "why": "a companion travels at the employee's expense"
+    },
+    {
+      "lines": [
+        556,
+        556
+      ],
+      "sha256": "5929bab943346e8b8837fb9e34578a3c2f2d9e85071ae50d20a6e258c58b9846",
+      "quote": "Employees typically will NOT be reimbursed for the following expenses:",
+      "why": "the not-reimbursed list"
+    },
+    {
+      "lines": [
+        570,
+        570
+      ],
+      "sha256": "c9160ea98ce838e760c0ee6bf7749298749ec9abdad631c440235c7e1dc3b999",
+      "quote": "Expenses for travel companions/family members",
+      "why": "companions are not reimbursed"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "The passenger is the employee's spouse: the employee pays the companion's airfare (section 9) and companion expenses are not reimbursed (section 11). Exactly one mandatory rule fails."
+}

@@ -1,0 +1,142 @@
+{
+  "id": "ember-trellis",
+  "category": "flag",
+  "overlays": [
+    "multi_leg",
+    "unclear_phrase"
+  ],
+  "twin_of": "saffron-wharf",
+  "twin_fact": "nonstop fare 51400 cents (between the both-pass and both-fail twins)",
+  "flag_twins": [
+    "saffron-wharf",
+    "kestrel-loom"
+  ],
+  "ambiguity_note": {
+    "phrase": "does not exceed 125% or $100 of the lowest airfare",
+    "readings": [
+      "either test suffices: the nonstop may be booked",
+      "both tests must pass: book the lowest logical fare via Dallas"
+    ]
+  },
+  "request": "I'd rather take the nonstop to Austin on the 11th if possible. If my meeting ends early I may switch to an earlier flight home on standby; I think that's covered up to a point.",
+  "trip": {
+    "traveller_name": "Ben Achebe",
+    "traveller_title": "Engineer",
+    "passenger": "EMPLOYEE",
+    "origin": "BOS",
+    "destination": "AUS",
+    "travel_date": "2026-12-11",
+    "booking_date": "2026-12-02",
+    "purpose": "Client meeting on a laboratory building",
+    "purpose_kind": "CLIENT_MEETING",
+    "client_reimburses_trip": false,
+    "project_cost": false,
+    "requested_cabin": "ECONOMY",
+    "requested_routing": "NONSTOP",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "BOS",
+        "destination": "AUS",
+        "date": "2026-12-11",
+        "return_date": "",
+        "flights": {
+          "dallas": {
+            "carrier": "AA",
+            "via": [
+              "DFW"
+            ],
+            "depart": "06:10",
+            "layovers": [
+              70
+            ]
+          },
+          "direct": {
+            "carrier": "DL",
+            "depart": "09:40"
+          },
+          "chicago": {
+            "carrier": "UA",
+            "via": [
+              "ORD"
+            ],
+            "depart": "07:25",
+            "layovers": [
+              95
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "dallas-economy",
+            "flight": "dallas",
+            "cabin": "ECONOMY",
+            "fare_cents": 41200
+          },
+          {
+            "slot": "direct-economy",
+            "flight": "direct",
+            "cabin": "ECONOMY",
+            "fare_cents": 51400
+          },
+          {
+            "slot": "chicago-economy",
+            "flight": "chicago",
+            "cabin": "ECONOMY",
+            "fare_cents": 45500
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "FLAG_FOR_APPROVAL",
+    "offer_slots": [
+      "direct-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "UNCLEAR_POLICY_TEXT"
+    ],
+    "approvers": [
+      "NOT_NAMED"
+    ],
+    "clauses": [
+      "AIR_ROUTE"
+    ],
+    "unclear_phrase": "does not exceed 125% or $100 of the lowest airfare"
+  },
+  "must_keep": [
+    {
+      "lines": [
+        239,
+        240
+      ],
+      "sha256": "78e5d0dc29535e471a16e9ab14a58c94a6bd03f0e35a9a455435bd62b0a6a9a9",
+      "quote": "Travelers are expected to book the lowest logical airfare unless an alternate connection or direct route can be found that does not exceed 125% or $100 of the lowest airfare.",
+      "why": "the alternate-route window"
+    }
+  ],
+  "distractors": [
+    {
+      "lines": [
+        244,
+        246
+      ],
+      "quote": "The Company will reimburse the expense of stand by charges up to $100 per ticket.",
+      "why": "a nearby $100 figure about standby fees, not about choosing a route"
+    }
+  ],
+  "design_notes": "The nonstop at $514 is 124.8% (passes 125%) but $102 more (fails $100). The handbook does not say whether one test or both must pass, so the answer is open: hold the nonstop. No role is named for this approval."
+}

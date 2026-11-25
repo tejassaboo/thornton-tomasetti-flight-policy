@@ -1,0 +1,110 @@
+{
+  "id": "cedar-lantern",
+  "category": "refusal",
+  "overlays": [
+    "personal_travel",
+    "outside_air_section"
+  ],
+  "twin_of": null,
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "While I'm in London for the project I'd like to pop over to Rome for the weekend. Can you book the flight on Saturday the 19th? I'll be back for Monday's meetings.",
+  "trip": {
+    "traveller_name": "Sofia Lindqvist",
+    "traveller_title": "Engineer",
+    "passenger": "EMPLOYEE",
+    "origin": "LHR",
+    "destination": "FCO",
+    "travel_date": "2026-12-19",
+    "booking_date": "2026-12-10",
+    "purpose": "A personal weekend in Rome during a business trip",
+    "purpose_kind": "PERSONAL",
+    "client_reimburses_trip": false,
+    "project_cost": false,
+    "requested_cabin": "ECONOMY",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "LHR",
+        "destination": "FCO",
+        "date": "2026-12-19",
+        "return_date": "",
+        "flights": {
+          "am": {
+            "carrier": "BA",
+            "depart": "08:40"
+          },
+          "pm": {
+            "carrier": "BA",
+            "depart": "13:00"
+          }
+        },
+        "offers": [
+          {
+            "slot": "am-economy",
+            "flight": "am",
+            "cabin": "ECONOMY",
+            "fare_cents": 14500
+          },
+          {
+            "slot": "pm-economy",
+            "flight": "pm",
+            "cabin": "ECONOMY",
+            "fare_cents": 16800
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "REFUSE",
+    "offer_slots": [],
+    "cabins": [
+      "NONE"
+    ],
+    "reason_codes": [
+      "PERSONAL_TRAVEL_NOT_COVERED"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "NOT_REIMBURSABLE",
+      "PERSONAL_TRAVEL"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        556,
+        556
+      ],
+      "sha256": "5929bab943346e8b8837fb9e34578a3c2f2d9e85071ae50d20a6e258c58b9846",
+      "quote": "Employees typically will NOT be reimbursed for the following expenses:",
+      "why": "the not-reimbursed list"
+    },
+    {
+      "lines": [
+        571,
+        571
+      ],
+      "sha256": "e41db38e4bc654eaaa743e90e253635528e0633154f1f904dea29578a56ee609",
+      "quote": "Expenses related to vacation or personal days whil e on a business trip",
+      "why": "personal days are not reimbursed"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Personal days on a business trip are not reimbursed (section 11, under section 9's heading 'PERSONAL/VACATION TRAVEL')."
+}

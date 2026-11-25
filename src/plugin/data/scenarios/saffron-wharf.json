@@ -1,0 +1,133 @@
+{
+  "id": "saffron-wharf",
+  "category": "distractor",
+  "overlays": [
+    "multi_leg",
+    "dearer_option"
+  ],
+  "twin_of": "kestrel-loom",
+  "twin_fact": "nonstop fare 49800 or 52000 cents",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I'd rather take the nonstop to Austin on the 11th if possible. If my meeting ends early I may switch to an earlier flight home on standby; I think that's covered up to a point.",
+  "trip": {
+    "traveller_name": "Ben Achebe",
+    "traveller_title": "Engineer",
+    "passenger": "EMPLOYEE",
+    "origin": "BOS",
+    "destination": "AUS",
+    "travel_date": "2026-12-11",
+    "booking_date": "2026-12-02",
+    "purpose": "Client meeting on a laboratory building",
+    "purpose_kind": "CLIENT_MEETING",
+    "client_reimburses_trip": false,
+    "project_cost": false,
+    "requested_cabin": "ECONOMY",
+    "requested_routing": "NONSTOP",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "BOS",
+        "destination": "AUS",
+        "date": "2026-12-11",
+        "return_date": "",
+        "flights": {
+          "dallas": {
+            "carrier": "AA",
+            "via": [
+              "DFW"
+            ],
+            "depart": "06:10",
+            "layovers": [
+              70
+            ]
+          },
+          "direct": {
+            "carrier": "DL",
+            "depart": "09:40"
+          },
+          "chicago": {
+            "carrier": "UA",
+            "via": [
+              "ORD"
+            ],
+            "depart": "07:25",
+            "layovers": [
+              95
+            ]
+          }
+        },
+        "offers": [
+          {
+            "slot": "dallas-economy",
+            "flight": "dallas",
+            "cabin": "ECONOMY",
+            "fare_cents": 41200
+          },
+          {
+            "slot": "direct-economy",
+            "flight": "direct",
+            "cabin": "ECONOMY",
+            "fare_cents": 49800
+          },
+          {
+            "slot": "chicago-economy",
+            "flight": "chicago",
+            "cabin": "ECONOMY",
+            "fare_cents": 45500
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "direct-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "ALTERNATE_ROUTE_WITHIN_MARGIN"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "AIR_ROUTE"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        239,
+        240
+      ],
+      "sha256": "78e5d0dc29535e471a16e9ab14a58c94a6bd03f0e35a9a455435bd62b0a6a9a9",
+      "quote": "Travelers are expected to book the lowest logical airfare unless an alternate connection or direct route can be found that does not exceed 125% or $100 of the lowest airfare.",
+      "why": "the alternate-route window"
+    }
+  ],
+  "distractors": [
+    {
+      "lines": [
+        244,
+        246
+      ],
+      "quote": "The Company will reimburse the expense of stand by charges up to $100 per ticket.",
+      "why": "a nearby $100 figure about standby fees, not about choosing a route"
+    }
+  ],
+  "design_notes": "Lowest logical fare $412 (via Dallas). The nonstop at $498 is 120.9% and $86 more: both tests pass, so the nonstop may be booked whether 'or' means either or both."
+}

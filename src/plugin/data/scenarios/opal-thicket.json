@@ -1,0 +1,121 @@
+{
+  "id": "opal-thicket",
+  "category": "easy",
+  "overlays": [
+    "upgrade_not_taken",
+    "overnight"
+  ],
+  "twin_of": null,
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Please get me on the overnight flight back to New York on Friday the 11th. Regular economy is fine, I'll sleep wherever they put me.",
+  "trip": {
+    "traveller_name": "Hannah Cole",
+    "traveller_title": "Engineer",
+    "passenger": "EMPLOYEE",
+    "origin": "SFO",
+    "destination": "JFK",
+    "travel_date": "2026-12-11",
+    "booking_date": "2026-12-03",
+    "purpose": "Return from a client workshop",
+    "purpose_kind": "CLIENT_MEETING",
+    "client_reimburses_trip": false,
+    "project_cost": false,
+    "requested_cabin": "ECONOMY",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "SFO",
+        "destination": "JFK",
+        "date": "2026-12-11",
+        "return_date": "",
+        "flights": {
+          "red": {
+            "carrier": "AA",
+            "depart": "22:30",
+            "minutes": [
+              325
+            ]
+          },
+          "morning": {
+            "carrier": "UA",
+            "depart": "07:10"
+          }
+        },
+        "offers": [
+          {
+            "slot": "red-economy",
+            "flight": "red",
+            "cabin": "ECONOMY",
+            "fare_cents": 42000
+          },
+          {
+            "slot": "red-premium",
+            "flight": "red",
+            "cabin": "PREMIUM_ECONOMY",
+            "fare_cents": 43200
+          },
+          {
+            "slot": "morning-economy",
+            "flight": "morning",
+            "cabin": "ECONOMY",
+            "fare_cents": 46500
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "red-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "LOWEST_FARE"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "AIR_CLASS",
+      "AIR_ROUTE"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        208,
+        209
+      ],
+      "sha256": "0b5465ce7c5f07608f6016c6ad62047701f31011c5019488146bf63d695482c6",
+      "quote": "Employees should always purchase the lowest fare av ailable with the following possible exceptions:",
+      "why": "the default: the lowest fare"
+    },
+    {
+      "lines": [
+        239,
+        240
+      ],
+      "sha256": "78e5d0dc29535e471a16e9ab14a58c94a6bd03f0e35a9a455435bd62b0a6a9a9",
+      "quote": "Travelers are expected to book the lowest logical airfare",
+      "why": "the default: the lowest logical airfare"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Premium economy would be allowed (overnight, upgrade $12 = 2.9%), but the traveller asks for economy: the permitted upgrade is correctly not taken."
+}

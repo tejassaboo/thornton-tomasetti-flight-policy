@@ -1,0 +1,16 @@
+{
+  "id": "thornton-tomasetti-flight-policy",
+  "name": "Thornton Tomasetti Flight Policy",
+  "slug": "thornton-tomasetti",
+  "title": "Thornton Tomasetti, Travel and Business Expense Policy, October 2019",
+  "frozen_file": "thornton-tomasetti_policy.txt",
+  "sha256": "adc0e8202132e5c13fe331d2161a1c60b259f8eb4d116a120ca0374b6c5c29e2",
+  "raw_pdf_sha256": "492413e00b3f4962ff672703bffd2ed46162f6b6cb657a57351f5a41847b6c0d",
+  "words": 4141,
+  "lines": 586,
+  "source": "https://ols.ovationtravel.com/cliqbook/thorntontomasetti/travel_policy.pdf",
+  "frozen_on": "2026-11-24",
+  "scenario_count": 24,
+  "currency": "USD",
+  "background_offers": 3
+}

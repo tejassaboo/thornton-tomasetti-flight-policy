@@ -1,0 +1,156 @@
+{
+  "id": "quartz-hollow",
+  "category": "multi_rule",
+  "overlays": [
+    "date_arithmetic",
+    "month_end"
+  ],
+  "twin_of": "garnet-harbor",
+  "twin_fact": "the earlier long flight left on 2026-11-16 or 2026-10-24",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I'm off to our Dubai office on December 8 for a week of internal software training. Our managing principal signed off on business class for the flight. Can you book it?",
+  "trip": {
+    "traveller_name": "Mei Tanaka",
+    "traveller_title": "Computational Engineer",
+    "passenger": "EMPLOYEE",
+    "origin": "JFK",
+    "destination": "DXB",
+    "travel_date": "2026-12-08",
+    "booking_date": "2026-12-03",
+    "purpose": "Internal software training at the Dubai office",
+    "purpose_kind": "TRAINING",
+    "client_reimburses_trip": false,
+    "project_cost": false,
+    "requested_cabin": "BUSINESS",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [
+      {
+        "role": "MANAGING_PRINCIPAL",
+        "name": "Rafael Ortiz",
+        "subject": "CABIN_UPGRADE",
+        "extra_fare_judged_reasonable": true
+      }
+    ],
+    "recent_flights": [
+      {
+        "date": "2026-11-30",
+        "origin": "JFK",
+        "destination": "BOS",
+        "scheduled_minutes": 75
+      },
+      {
+        "date": "2026-10-24",
+        "origin": "HKG",
+        "destination": "JFK",
+        "scheduled_minutes": 950
+      }
+    ]
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "JFK",
+        "destination": "DXB",
+        "date": "2026-12-08",
+        "return_date": "",
+        "flights": {
+          "day": {
+            "carrier": "EK",
+            "depart": "11:00",
+            "minutes": [
+              760
+            ]
+          },
+          "night": {
+            "carrier": "EK",
+            "depart": "22:50"
+          }
+        },
+        "offers": [
+          {
+            "slot": "day-economy",
+            "flight": "day",
+            "cabin": "ECONOMY",
+            "fare_cents": 98000
+          },
+          {
+            "slot": "day-business",
+            "flight": "day",
+            "cabin": "BUSINESS",
+            "fare_cents": 520000
+          },
+          {
+            "slot": "night-economy",
+            "flight": "night",
+            "cabin": "ECONOMY",
+            "fare_cents": 104000
+          },
+          {
+            "slot": "night-business",
+            "flight": "night",
+            "cabin": "BUSINESS",
+            "fare_cents": 560000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "day-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "LONG_FLIGHT_CONDITION_NOT_MET",
+      "UPGRADE_NOT_ELIGIBLE"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "AIR_CLASS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        215,
+        215
+      ],
+      "sha256": "8fef61291e46048a81dd77cfb7c73049bb5ebbed683b7cbf0c97a44b6fe89d34",
+      "quote": "Business or similar class may be purchased under any of the following conditions:",
+      "why": "any one condition is enough"
+    },
+    {
+      "lines": [
+        226,
+        233
+      ],
+      "sha256": "c38c0fc9c164f8e16fa1d720e6da06891386d8efdcd534043084008038c3f822",
+      "quote": " If approved by the Managing Principal in charge of the Region, Practice or Support Dept., or the Vice President in charge if a project cost, where o The cost of the upgrade is not deemed excessive an d; o The scheduled time of the flight is in excess of 8 hours, and  The trip is for a client meeting and the seat loca tion is necessary for the employee to receive the maximum rest or  The employee has traveled on flights of this lengt h at least once in the past 30 days.",
+      "why": "the long-flight condition"
+    },
+    {
+      "lines": [
+        208,
+        209
+      ],
+      "sha256": "0b5465ce7c5f07608f6016c6ad62047701f31011c5019488146bf63d695482c6",
+      "quote": "Employees should always purchase the lowest fare av ailable with the following possible exceptions:",
+      "why": "the default: the lowest fare"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "The flight is far over 8 hours and the Managing Principal signed off with the extra fare judged reasonable, but the trip is internal training, so the condition rests on the earlier long flight (950 minutes, Hong Kong to New York) on 2026-10-24: 45 days before travel and 40 before booking, outside on any count. The recent 75-minute Boston flight is not 'of this length'."
+}

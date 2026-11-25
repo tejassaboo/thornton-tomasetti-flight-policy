@@ -1,0 +1,119 @@
+{
+  "id": "amber-quay",
+  "category": "easy",
+  "overlays": [],
+  "twin_of": null,
+  "twin_fact": "",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Hi, I need to get to Chicago on Wednesday, December 9, for a coordination meeting with the steel fabricator on our Fulton Street job. Economy is fine, just get me there.",
+  "trip": {
+    "traveller_name": "Elena Marsh",
+    "traveller_title": "Project Engineer",
+    "passenger": "EMPLOYEE",
+    "origin": "JFK",
+    "destination": "ORD",
+    "travel_date": "2026-12-09",
+    "booking_date": "2026-12-01",
+    "purpose": "Coordination meeting with the steel fabricator",
+    "purpose_kind": "PROJECT_SITE_WORK",
+    "client_reimburses_trip": false,
+    "project_cost": true,
+    "requested_cabin": "ECONOMY",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "JFK",
+        "destination": "ORD",
+        "date": "2026-12-09",
+        "return_date": "",
+        "flights": {
+          "am": {
+            "carrier": "AA",
+            "depart": "07:15"
+          },
+          "mid": {
+            "carrier": "UA",
+            "depart": "12:40"
+          },
+          "pm": {
+            "carrier": "DL",
+            "depart": "17:05"
+          }
+        },
+        "offers": [
+          {
+            "slot": "am-economy",
+            "flight": "am",
+            "cabin": "ECONOMY",
+            "fare_cents": 21400
+          },
+          {
+            "slot": "mid-economy",
+            "flight": "mid",
+            "cabin": "ECONOMY",
+            "fare_cents": 18900
+          },
+          {
+            "slot": "pm-economy",
+            "flight": "pm",
+            "cabin": "ECONOMY",
+            "fare_cents": 23100
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "mid-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "LOWEST_FARE"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "AIR_CLASS",
+      "AIR_ROUTE"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        208,
+        209
+      ],
+      "sha256": "0b5465ce7c5f07608f6016c6ad62047701f31011c5019488146bf63d695482c6",
+      "quote": "Employees should always purchase the lowest fare av ailable with the following possible exceptions:",
+      "why": "the default: the lowest fare"
+    },
+    {
+      "lines": [
+        239,
+        240
+      ],
+      "sha256": "78e5d0dc29535e471a16e9ab14a58c94a6bd03f0e35a9a455435bd62b0a6a9a9",
+      "quote": "Travelers are expected to book the lowest logical airfare",
+      "why": "the default: the lowest logical airfare"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "One rule, wide margins: three nonstops, book the cheapest. Catches harness faults."
+}

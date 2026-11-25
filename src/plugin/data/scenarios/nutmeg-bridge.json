@@ -1,0 +1,122 @@
+{
+  "id": "nutmeg-bridge",
+  "category": "boundary_twin",
+  "overlays": [
+    "dearer_option"
+  ],
+  "twin_of": "dune-orchard",
+  "twin_fact": "business fare 162800 or 162801 cents",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "Can you put me in business for the Los Angeles trip on the 10th? On the morning flight it's barely more than coach.",
+  "trip": {
+    "traveller_name": "Samuel Okoro",
+    "traveller_title": "Senior Engineer",
+    "passenger": "EMPLOYEE",
+    "origin": "JFK",
+    "destination": "LAX",
+    "travel_date": "2026-12-10",
+    "booking_date": "2026-12-08",
+    "purpose": "Seismic retrofit meeting with the owner",
+    "purpose_kind": "CLIENT_MEETING",
+    "client_reimburses_trip": false,
+    "project_cost": false,
+    "requested_cabin": "BUSINESS",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "JFK",
+        "destination": "LAX",
+        "date": "2026-12-10",
+        "return_date": "",
+        "flights": {
+          "first": {
+            "carrier": "AA",
+            "depart": "08:00"
+          },
+          "second": {
+            "carrier": "DL",
+            "depart": "13:30"
+          }
+        },
+        "offers": [
+          {
+            "slot": "first-economy",
+            "flight": "first",
+            "cabin": "ECONOMY",
+            "fare_cents": 148000
+          },
+          {
+            "slot": "first-business",
+            "flight": "first",
+            "cabin": "BUSINESS",
+            "fare_cents": 162800
+          },
+          {
+            "slot": "second-economy",
+            "flight": "second",
+            "cabin": "ECONOMY",
+            "fare_cents": 151500
+          },
+          {
+            "slot": "second-business",
+            "flight": "second",
+            "cabin": "BUSINESS",
+            "fare_cents": 489000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "first-business"
+    ],
+    "cabins": [
+      "BUSINESS"
+    ],
+    "reason_codes": [
+      "UPGRADE_WITHIN_FARE_MARGIN"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "AIR_CLASS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        215,
+        215
+      ],
+      "sha256": "8fef61291e46048a81dd77cfb7c73049bb5ebbed683b7cbf0c97a44b6fe89d34",
+      "quote": "Business or similar class may be purchased under any of the following conditions:",
+      "why": "any one condition is enough"
+    },
+    {
+      "lines": [
+        217,
+        217
+      ],
+      "sha256": "b2468dea4539533333ebefdac00f3ed0a07a764d9179ffc299a325c2d99c20a7",
+      "quote": "An upgraded fare does not exceed the lowest priced fare by more than 10%",
+      "why": "the 10% upgrade window"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "Lowest fare $1,480.00; business $1,628.00. 110% of 148000 is exactly 162800 cents, so 162800 does not exceed the lowest priced fare by more than 10% and 162801 does."
+}

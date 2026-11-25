@@ -1,0 +1,126 @@
+{
+  "id": "indigo-meadow",
+  "category": "hidden_clause",
+  "overlays": [
+    "synonym",
+    "overnight"
+  ],
+  "twin_of": "velvet-prairie",
+  "twin_fact": "premium fare 106000 or 82900 cents",
+  "flag_twins": [],
+  "ambiguity_note": "none",
+  "request": "I'm heading to London overnight on the 16th for the Battersea project kickoff. Could you get me one of those seats with extra legroom on the evening flight?",
+  "trip": {
+    "traveller_name": "Noah Fischer",
+    "traveller_title": "Project Manager",
+    "passenger": "EMPLOYEE",
+    "origin": "JFK",
+    "destination": "LHR",
+    "travel_date": "2026-12-16",
+    "booking_date": "2026-12-01",
+    "purpose": "Project kickoff in London",
+    "purpose_kind": "PROJECT_SITE_WORK",
+    "client_reimburses_trip": false,
+    "project_cost": true,
+    "requested_cabin": "PREMIUM_ECONOMY",
+    "requested_routing": "ANY",
+    "traveller_pays_upgrade": false,
+    "special_needs_on_file": false,
+    "urgent_cannot_postpone": false,
+    "rest_needed_on_arrival": false,
+    "extra_costs_if_cheapest_cents": 0,
+    "sign_offs": [],
+    "recent_flights": []
+  },
+  "world": {
+    "searches": [
+      {
+        "name": "main",
+        "origin": "JFK",
+        "destination": "LHR",
+        "date": "2026-12-16",
+        "return_date": "",
+        "flights": {
+          "evening": {
+            "carrier": "VS",
+            "depart": "21:30",
+            "minutes": [
+              420
+            ]
+          },
+          "morning": {
+            "carrier": "BA",
+            "depart": "08:15"
+          }
+        },
+        "offers": [
+          {
+            "slot": "evening-economy",
+            "flight": "evening",
+            "cabin": "ECONOMY",
+            "fare_cents": 64000
+          },
+          {
+            "slot": "evening-premium",
+            "flight": "evening",
+            "cabin": "PREMIUM_ECONOMY",
+            "fare_cents": 106000
+          },
+          {
+            "slot": "morning-economy",
+            "flight": "morning",
+            "cabin": "ECONOMY",
+            "fare_cents": 71000
+          },
+          {
+            "slot": "morning-business",
+            "flight": "morning",
+            "cabin": "BUSINESS",
+            "fare_cents": 380000
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "decision": "BOOK",
+    "offer_slots": [
+      "evening-economy"
+    ],
+    "cabins": [
+      "ECONOMY"
+    ],
+    "reason_codes": [
+      "UPGRADE_COST_NOT_NOMINAL"
+    ],
+    "approvers": [
+      "NONE"
+    ],
+    "clauses": [
+      "AIR_CLASS"
+    ],
+    "unclear_phrase": ""
+  },
+  "must_keep": [
+    {
+      "lines": [
+        211,
+        213
+      ],
+      "sha256": "76c327ed37dacd5918873b89186dec12a0fee187aaf9d875ea29141bfede4559",
+      "quote": "Ecomomy Plus, Economy Premium or similar class may be purchased for flights in excess of 6 hours or overnight flights where the cost of the up grade is deemed nominal in terms of dollar amount or as a percentage of a Coach ticket.",
+      "why": "the premium economy rule"
+    },
+    {
+      "lines": [
+        208,
+        209
+      ],
+      "sha256": "0b5465ce7c5f07608f6016c6ad62047701f31011c5019488146bf63d695482c6",
+      "quote": "Employees should always purchase the lowest fare av ailable with the following possible exceptions:",
+      "why": "the default: the lowest fare"
+    }
+  ],
+  "distractors": [],
+  "design_notes": "'Extra legroom' is premium economy in the handbook's words ('Economy Plus, Economy Premium or similar'). The flight qualifies (overnight, 420 minutes), but the upgrade is $420 on a $640 coach fare (65.6%): not nominal on either measure."
+}
