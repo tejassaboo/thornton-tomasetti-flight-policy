@@ -317,6 +317,10 @@ def business(trip, offers, bookable, lowest):
             long_state = "unclear"
     if long_state == "granted":
         granted.append((ReasonCode.LONG_FLIGHT_APPROVED, role))
+        if trip.origin.country != trip.destination.country:
+            # Validation w1v3: on an international flight over the limit INTERNATIONAL_LONG_FLIGHT names the same
+            # ground, and most plugins' long-flight business keys accept both codes (wave 2, cinder-heath).
+            granted.append((ReasonCode.INTERNATIONAL_LONG_FLIGHT, role))
     elif long_state == "pending":
         pending.append(role)
     if granted:

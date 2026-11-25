@@ -41,13 +41,13 @@ to run with `query: instructions+input`, so a selector sees the traveller's requ
 | `juniper-anvil` | easy | BOOK (am-business, BUSINESS) | MEDICAL_NEED | SUPERVISOR or NONE | AIR_CLASS (215, 218-219) |
 | `opal-thicket` | easy | BOOK (red-economy, ECONOMY) | LOWEST_FARE | NONE | AIR_CLASS or AIR_ROUTE (208-209, 239-240) |
 | `willow-beacon` | easy | BOOK (noon-economy, ECONOMY) | LOWEST_FARE | NONE | AIR_CLASS or AIR_ROUTE (208-209, 239-240) |
-| `basalt-ferry` | boundary_twin | BOOK (noon-business, BUSINESS) | LONG_FLIGHT_APPROVED | MANAGING_PRINCIPAL or NONE | AIR_CLASS (215, 226-233) |
+| `basalt-ferry` | boundary_twin | BOOK (noon-business, BUSINESS) | LONG_FLIGHT_APPROVED or INTERNATIONAL_LONG_FLIGHT | MANAGING_PRINCIPAL or NONE | AIR_CLASS (215, 226-233) |
 | `dune-orchard` | boundary_twin | BOOK (first-economy, ECONOMY) | UPGRADE_NOT_ELIGIBLE | NONE | AIR_CLASS (215, 217, 208-209) |
 | `hazel-compass` | boundary_twin | BOOK (morning-economy, ECONOMY) | UPGRADE_NOT_ELIGIBLE | NONE | AIR_CLASS (211-213, 208-209) |
 | `nutmeg-bridge` | boundary_twin | BOOK (first-business, BUSINESS) | UPGRADE_WITHIN_FARE_MARGIN | NONE | AIR_CLASS (215, 217) |
 | `russet-glade` | boundary_twin | BOOK (morning-premium, PREMIUM_ECONOMY) | PREMIUM_ECONOMY_ALLOWED | NONE | AIR_CLASS (211-213) |
 | `yarrow-mosaic` | boundary_twin | BOOK (noon-economy, ECONOMY) | LONG_FLIGHT_CONDITION_NOT_MET or UPGRADE_NOT_ELIGIBLE | MANAGING_PRINCIPAL or NONE | AIR_CLASS (215, 226-233, 208-209) |
-| `garnet-harbor` | multi_rule | BOOK (day-business, BUSINESS) | LONG_FLIGHT_APPROVED | MANAGING_PRINCIPAL or NONE | AIR_CLASS (215, 226-233) |
+| `garnet-harbor` | multi_rule | BOOK (day-business, BUSINESS) | LONG_FLIGHT_APPROVED or INTERNATIONAL_LONG_FLIGHT | MANAGING_PRINCIPAL or NONE | AIR_CLASS (215, 226-233) |
 | `marble-canopy` | multi_rule | BOOK (early-business, BUSINESS) | COST_SAVINGS | NONE | AIR_CLASS (215, 220-222) |
 | `quartz-hollow` | multi_rule | BOOK (day-economy, ECONOMY) | LONG_FLIGHT_CONDITION_NOT_MET or UPGRADE_NOT_ELIGIBLE | MANAGING_PRINCIPAL or NONE | AIR_CLASS (215, 226-233, 208-209) |
 | `umber-skiff` | multi_rule | BOOK (first-business, BUSINESS) | NO_ECONOMY_SEATS_URGENT | SUPERVISOR or NONE | AIR_CLASS (215, 223-224) |

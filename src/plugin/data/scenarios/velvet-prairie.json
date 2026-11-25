@@ -7,7 +7,7 @@
     "unclear_phrase"
   ],
   "twin_of": "indigo-meadow",
-  "twin_fact": "premium fare 82900 or 106000 cents",
+  "twin_fact": "premium fare 70400 or 106000 cents",
   "flag_twins": [
     "russet-glade",
     "indigo-meadow"
@@ -15,8 +15,8 @@
   "ambiguity_note": {
     "phrase": "deemed nominal",
     "readings": [
-      "$189 (29.5%) is nominal: book premium economy",
-      "$189 (29.5%) is not nominal: book coach"
+      "$64 (10%) is nominal: book premium economy",
+      "$64 (10%) is not nominal: book coach"
     ]
   },
   "request": "I'm heading to London overnight on the 16th for the Battersea project kickoff. Could you get me one of those seats with extra legroom on the evening flight?",
@@ -74,7 +74,7 @@
             "slot": "evening-premium",
             "flight": "evening",
             "cabin": "PREMIUM_ECONOMY",
-            "fare_cents": 82900
+            "fare_cents": 70400
           },
           {
             "slot": "morning-economy",
@@ -124,5 +124,5 @@
     }
   ],
   "distractors": [],
-  "design_notes": "The flight qualifies (overnight, 420 minutes). The upgrade is $189 on a $640 coach fare (29.5%); the handbook never defines 'nominal', and two readers can disagree here. Hold the premium seat."
+  "design_notes": "The flight qualifies (overnight, 420 minutes). The upgrade is $64 on a $640 coach fare (10%), between clearly nominal ($25 and 3%) and clearly not ($250 and 30%); the handbook never defines 'nominal', and two readers can disagree here. Hold the premium seat. (Validation w1v3: was $189, 29.5%, which readers took as plainly not nominal.)"
 }
