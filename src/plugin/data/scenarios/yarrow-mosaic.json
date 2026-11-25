@@ -82,7 +82,8 @@
             "cabin": "BUSINESS",
             "fare_cents": 455000
           }
-        ]
+        ],
+        "background": 0
       }
     ]
   },
@@ -136,5 +137,5 @@
     }
   ],
   "distractors": [],
-  "design_notes": "Client meeting needing rest, the Managing Principal's sign-off recording the extra fare as reasonable; the cheapest business flight is scheduled 480 minutes. 'in excess of 8 hours' is strict: 481 qualifies, 480 does not."
+  "design_notes": "Client meeting needing rest, the Managing Principal's sign-off recording the extra fare as reasonable; the cheapest business flight is scheduled 480 minutes. 'in excess of 8 hours' is strict: 481 qualifies, 480 does not. No background offers: a background connection whose flights add up to more than 8 hours would qualify on the whole-journey reading of 'the flight'."
 }

@@ -245,7 +245,8 @@ def premium(bookable, lowest):
         return answer(Decision.BOOK, wanted, [ReasonCode.PREMIUM_ECONOMY_ALLOWED], [Approver.NONE],
                       [Clause.AIR_CLASS], f"Lines 211-213: eligible flight, clearly nominal {numbers}.")
     if extra >= NOT_NOMINAL_CENTS and extra * 100 >= NOT_NOMINAL_PERCENT * base:
-        return answer(Decision.BOOK, lowest, [ReasonCode.UPGRADE_COST_NOT_NOMINAL], [Approver.NONE],
+        return answer(Decision.BOOK, lowest, [ReasonCode.UPGRADE_COST_NOT_NOMINAL, ReasonCode.UPGRADE_NOT_ELIGIBLE],
+                      [Approver.NONE],
                       [Clause.AIR_CLASS], f"Lines 211-213: eligible flight, clearly not nominal {numbers}.")
     return answer(Decision.FLAG_FOR_APPROVAL, wanted, [ReasonCode.UNCLEAR_POLICY_TEXT], [Approver.NOT_NAMED],
                   [Clause.AIR_CLASS], f"Lines 211-213: eligible flight, \"nominal\" is not defined ({numbers}).",

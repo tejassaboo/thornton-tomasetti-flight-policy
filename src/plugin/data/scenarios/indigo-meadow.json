@@ -91,7 +91,8 @@
       "ECONOMY"
     ],
     "reason_codes": [
-      "UPGRADE_COST_NOT_NOMINAL"
+      "UPGRADE_COST_NOT_NOMINAL",
+      "UPGRADE_NOT_ELIGIBLE"
     ],
     "approvers": [
       "NONE"

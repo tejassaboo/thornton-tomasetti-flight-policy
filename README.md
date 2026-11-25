@@ -46,7 +46,7 @@ to run with `query: instructions+input`, so a selector sees the traveller's requ
 | `marble-canopy` | multi_rule | BOOK (early-business, BUSINESS) | COST_SAVINGS | NONE | AIR_CLASS (215, 220-222) |
 | `quartz-hollow` | multi_rule | BOOK (day-economy, ECONOMY) | LONG_FLIGHT_CONDITION_NOT_MET or UPGRADE_NOT_ELIGIBLE | NONE | AIR_CLASS (215, 226-233, 208-209) |
 | `umber-skiff` | multi_rule | BOOK (first-business, BUSINESS) | NO_ECONOMY_SEATS_URGENT | SUPERVISOR | AIR_CLASS (215, 223-224) |
-| `indigo-meadow` | hidden_clause | BOOK (evening-economy, ECONOMY) | UPGRADE_COST_NOT_NOMINAL | NONE | AIR_CLASS (211-213, 208-209) |
+| `indigo-meadow` | hidden_clause | BOOK (evening-economy, ECONOMY) | UPGRADE_COST_NOT_NOMINAL or UPGRADE_NOT_ELIGIBLE | NONE | AIR_CLASS (211-213, 208-209) |
 | `timber-cairn` | hidden_clause | BOOK (am-business, BUSINESS) | TRAVELER_PAYS_UPGRADE | NONE | AIR_CLASS (215, 225) |
 | `kestrel-loom` | distractor | BOOK (dallas-economy, ECONOMY) | ALTERNATE_ROUTE_TOO_EXPENSIVE | NONE | AIR_ROUTE (239-240) |
 | `saffron-wharf` | distractor | BOOK (direct-economy, ECONOMY) | ALTERNATE_ROUTE_WITHIN_MARGIN | NONE | AIR_ROUTE (239-240) |
