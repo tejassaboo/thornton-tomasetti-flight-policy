@@ -50,6 +50,6 @@ tasks > dict[contract.Task, nanoagent.plugin.v0001.TaskConfig]:
 
       Call get_trip with the task input's case id to read the trip record, then call search_flights for the trip's origin, destination and travel date. Then call submit with your single decision:
       - BOOK when the company buys a ticket now, with the offer_id of the offer to buy and its cabin;
-      - REFUSE when the company does not buy this ticket at all, with an empty offer_id and cabin NONE;
+      - REFUSE when the company buys no ticket at all for this trip, with an empty offer_id and cabin NONE;
       - FLAG_FOR_APPROVAL when the ticket must wait, either for someone's sign-off or because the handbook's words leave the answer open, with the offer_id of the offer to hold and its cabin.
       Give a reason_code, the approver role and the handbook section (clause) from their closed lists; use NONE where nothing applies.

@@ -326,7 +326,7 @@ class SearchOutput(Output):
 class BookingOutput(Output):
     decision: Annotated[
         Decision,
-        "BOOK: buy offer_id now. REFUSE: buy nothing, because the company will not pay for this ticket. "
+        "BOOK: buy offer_id now. REFUSE: buy nothing, because the company buys no ticket at all for this trip. "
         "FLAG_FOR_APPROVAL: hold offer_id and buy nothing yet, because someone must approve it first or "
         "the handbook's words leave the answer open",
     ]
