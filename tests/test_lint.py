@@ -14,8 +14,10 @@ from plugin.rules import CONVENTIONS as HANDBOOK_CONVENTIONS
 from plugin.world import NOTE
 from plugin_spec import ROOT
 
+# "one" and "two" are left out: the shared template text needs them ("one-way", "for one passenger",
+# "between two dates") in every plugin, so they cannot leak a handbook's rule. Digits are always checked.
 NUMBER_WORDS = {
-    "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "fifteen",
+    "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "fifteen",
     "twenty", "thirty", "forty", "fifty", "sixty", "hundred", "thousand", "half", "quarter", "once", "twice",
 }
 
