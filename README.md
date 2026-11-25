@@ -1,5 +1,7 @@
 # Thornton Tomasetti Flight Policy
 
+**Source of the handbook:** https://ols.ovationtravel.com/cliqbook/thorntontomasetti/travel_policy.pdf. The agent reads it verbatim (bundled at `src/plugin/data/policy.txt`); flights, fares and trips are synthetic.
+
 **No affiliation with Thornton Tomasetti.** The handbook is the firm's public *Travel and Business Expense
 Policy* (October 2019), bundled verbatim for research. Do not publish this plugin before the course staff
 confirm that a verbatim corporate handbook may be redistributed.
