@@ -101,7 +101,8 @@
       "LONG_FLIGHT_APPROVED"
     ],
     "approvers": [
-      "MANAGING_PRINCIPAL"
+      "MANAGING_PRINCIPAL",
+      "NONE"
     ],
     "clauses": [
       "AIR_CLASS"

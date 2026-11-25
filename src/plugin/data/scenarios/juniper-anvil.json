@@ -98,7 +98,8 @@
       "MEDICAL_NEED"
     ],
     "approvers": [
-      "SUPERVISOR"
+      "SUPERVISOR",
+      "NONE"
     ],
     "clauses": [
       "AIR_CLASS"

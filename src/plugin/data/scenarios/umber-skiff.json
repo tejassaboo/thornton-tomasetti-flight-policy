@@ -117,7 +117,8 @@
       "NO_ECONOMY_SEATS_URGENT"
     ],
     "approvers": [
-      "SUPERVISOR"
+      "SUPERVISOR",
+      "NONE"
     ],
     "clauses": [
       "AIR_CLASS"

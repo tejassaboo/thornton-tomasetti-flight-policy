@@ -162,7 +162,12 @@ def solve(trip, offers, hidden):
     offer id, cabin, reason, approver and section. ``hidden`` (the scenario's answer_key_inputs) is unused
     by this handbook."""
     key = decide(trip, offers, hidden)
-    if key["decision"] != Decision.FLAG_FOR_APPROVAL and key["approvers"] == [Approver.NONE] and trip.sign_offs:
+    if key["decision"] != Decision.FLAG_FOR_APPROVAL and key["approvers"] != [Approver.NONE]:
+        # A BOOK that rests on a sign-off already on file (juniper-anvil, umber-skiff, basalt-ferry,
+        # garnet-harbor): readers split on whether a routine sign-off already given is one the decision "relies
+        # on", so NONE is accepted beside its role (template SYNC_NOTES 4'). A hold still needs the awaited role.
+        key["approvers"] = by_value([Approver.NONE, *key["approvers"]])
+    elif key["decision"] != Decision.FLAG_FOR_APPROVAL and trip.sign_offs:
         # A sign-off on file that this decision does not use (quartz-hollow, yarrow-mosaic: the better cabin it
         # approves is not allowed): the decision relies on no one's, so NONE, but readers split on whether a
         # sign-off on file is "relied on", so its role is accepted too.
