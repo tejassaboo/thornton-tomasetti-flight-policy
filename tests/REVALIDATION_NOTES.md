@@ -43,3 +43,18 @@ No scenario or grader defect was found. Expected after the fix on the same answe
 `uv run pytest -q` (209 passed), `uv run ruff check .`, `uv lock --check`, `python3 ../_template/check_shared.py .`
 (ok), `tools/stock_verify.py` with the NanoAgent venv (24 scenarios, 0 failures). `world.py` and every scenario
 world are unchanged, so `world_diff.py` has nothing to report.
+
+## Declined requests (lead's decision after the review, template APPROVER_REVIEW.md)
+
+The booking task's instructions now end: "When you book something other than what the traveller asked for, the
+reason code gives why their request is declined." No accept set changes here:
+
+- The bookings that decline the cabin asked for (dune-orchard, hazel-compass, indigo-meadow, quartz-hollow,
+  yarrow-mosaic) already accept only the codes that name the failed condition. The new sentence now tells the
+  agent so, which is what yarrow-mosaic's `LOWEST_FARE` answer lacked.
+- kestrel-loom (the nonstop asked for) keeps `LOWEST_FARE` beside `ALTERNATE_ROUTE_TOO_EXPENSIVE`: lines 239-240
+  decline the nonstop by the lowest-logical-airfare rule itself.
+- Untouched, nothing asked for is declined: amber-quay, opal-thicket, willow-beacon, and every booking of the
+  cabin or route asked for.
+
+`MAX_PASS_ALWAYS_LOWEST` stays 4 of 24 (measured).
