@@ -37,10 +37,30 @@ def test_every_accepted_value_passes(name, tmp_path):
     data = ALL[name]
     key = reference(data)
     good = right_answer(key)
+    cabin_of = {offer.offer_id: offer.cabin for offer in key.offers}
     for field, values in accepted(key).items():
         for value in values:
-            output = dataclasses.replace(good, **{field: value})
+            change = {field: value}
+            if field == "offer_id" and value:
+                change["cabin"] = cabin_of[value]  # the cabin is graded as the chosen offer's own
+            if field == "cabin" and key.offer_ids:
+                change["offer_id"] = next(offer for offer in key.offer_ids if cabin_of[offer] == value)
+            output = dataclasses.replace(good, **change)
             assert verifier.verify_task(TASK, build_task_input(data), output, key, str(tmp_path))["valid"], (field, value)
+
+
+@pytest.mark.parametrize("name", sorted(ALL))
+def test_the_cabin_must_be_the_chosen_offers_own(name, tmp_path):
+    data = ALL[name]
+    key = reference(data)
+    cabin_of = {offer.offer_id: offer.cabin for offer in key.offers}
+    for offer_id in key.offer_ids:
+        for cabin in key.cabins:
+            if cabin == cabin_of[offer_id]:
+                continue
+            output = dataclasses.replace(right_answer(key), offer_id=offer_id, cabin=cabin)
+            verdict = verifier.verify_task(TASK, build_task_input(data), output, key, str(tmp_path))
+            assert verdict["valid"] is False and verdict["details"]["wrong"] == ["cabin"], (name, offer_id, cabin)
 
 
 @pytest.mark.parametrize("name", sorted(ALL))
@@ -68,9 +88,10 @@ def test_an_always_flag_or_always_lowest_agent_fails_most_cases(tmp_path):
     for data in ALL.values():
         key = reference(data)
         lowest = min((offer for offer in key.offers if offer.seats_available), key=lambda offer: offer.fare_cents)
+        held = right_answer(key) if key.offer_ids else None
         tries = {
-            "flag": BookingOutput(Decision.FLAG_FOR_APPROVAL, key.offer_ids[0] if key.offer_ids else lowest.offer_id,
-                                  key.cabins[0] if key.offer_ids else lowest.cabin, ReasonCode.UNCLEAR_POLICY_TEXT,
+            "flag": BookingOutput(Decision.FLAG_FOR_APPROVAL, held.offer_id if held else lowest.offer_id,
+                                  held.cabin if held else lowest.cabin, ReasonCode.UNCLEAR_POLICY_TEXT,
                                   Approver.NOT_NAMED, key.clauses[0]),
             "lowest": BookingOutput(Decision.BOOK, lowest.offer_id, lowest.cabin, ReasonCode.LOWEST_FARE, Approver.NONE,
                                     key.clauses[0]),

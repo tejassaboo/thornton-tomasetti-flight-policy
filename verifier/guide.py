@@ -16,7 +16,9 @@ CONVENTIONS = (
      "all year in this world, with no daylight saving."),
     "A flight's date is the local date at the airport it leaves from.",
     "Days between two dates are calendar days: the later date minus the earlier one.",
-    "Fares are whole one-way prices in cents for one passenger, taxes included.",
+    ("Fares are whole prices in cents for one passenger, taxes included: a search without a return date lists "
+     "one-way fares, and a search with one lists round-trip fares (trip_type ROUND_TRIP) that cover the flights "
+     "out and back."),
     "An offer whose seats_available is false is sold out: its price is shown but it cannot be bought.",
     "Offers on the same flights in different cabins share flight numbers and times.",
     "The trip record's booking_date is today in this world.",

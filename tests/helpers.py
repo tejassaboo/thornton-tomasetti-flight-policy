@@ -45,11 +45,13 @@ def reference(data):
 
 
 def right_answer(key):
-    """The first accepted value of every field: a correct submission."""
+    """The first accepted value of every field (the first accepted offer, in its own cabin): a correct
+    submission."""
     return BookingOutput(
         decision=key.decision,
         offer_id=key.offer_ids[0] if key.offer_ids else "",
-        cabin=key.cabins[0] if key.offer_ids else Cabin.NONE,
+        cabin=next(offer.cabin for offer in key.offers if offer.offer_id == key.offer_ids[0]) if key.offer_ids
+        else Cabin.NONE,
         reason_code=key.reason_codes[0],
         approver=key.approvers[0],
         clause=key.clauses[0],

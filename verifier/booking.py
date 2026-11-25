@@ -11,12 +11,17 @@ from .tools import field_of
 GRADED = ("decision", "offer_id", "cabin", "reason_code", "approver", "clause")
 
 
-def accepted(key):
-    """Each graded field and the values the answer key accepts for it."""
+def accepted(key, offers=(), chosen=""):
+    """Each graded field and the values the answer key accepts for it. The cabin is the chosen offer's own
+    cabin whenever that offer is an accepted one, so a hold that accepts offers in several cabins cannot be
+    passed by pairing one offer with another offer's cabin."""
+    cabins = key["cabins"]
+    if chosen in key["offer_ids"]:
+        cabins = [offer.cabin for offer in offers if offer.offer_id == chosen][:1]
     return {
         "decision": [key["decision"]],
         "offer_id": key["offer_ids"] if key["decision"] != Decision.REFUSE else [""],
-        "cabin": key["cabins"],
+        "cabin": cabins,
         "reason_code": key["reason_codes"],
         "approver": key["approvers"],
         "clause": key["clauses"],
@@ -41,7 +46,7 @@ def verify_task(arguments, output, reference, workspace):
         for name, value in key.items():
             if field_of(reference, name) != value:
                 return result(False, f"the pinned reference's {name} differs from the verifier's answer", score=0.0)
-    wanted, given = accepted(key), submitted(output)
+    wanted, given = accepted(key, offers, output.offer_id), submitted(output)
     wrong = [name for name in GRADED if given[name] not in wanted[name]]
     known = output.offer_id == "" or output.offer_id in slots
     details = {
