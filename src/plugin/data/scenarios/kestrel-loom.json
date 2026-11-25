@@ -84,7 +84,8 @@
             "cabin": "ECONOMY",
             "fare_cents": 45500
           }
-        ]
+        ],
+        "background": 3
       }
     ]
   },
@@ -97,7 +98,8 @@
       "ECONOMY"
     ],
     "reason_codes": [
-      "ALTERNATE_ROUTE_TOO_EXPENSIVE"
+      "ALTERNATE_ROUTE_TOO_EXPENSIVE",
+      "LOWEST_FARE"
     ],
     "approvers": [
       "NONE"

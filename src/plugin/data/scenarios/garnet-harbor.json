@@ -99,7 +99,8 @@
             "cabin": "BUSINESS",
             "fare_cents": 560000
           }
-        ]
+        ],
+        "background": 3
       }
     ]
   },

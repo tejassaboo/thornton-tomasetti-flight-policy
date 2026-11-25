@@ -42,7 +42,7 @@ ID_CATEGORY_ENUMS = [contract.Passenger, contract.Purpose, contract.Routing, con
 # How many scenarios a degenerate agent may pass: one that always holds the right offer for approval, and
 # one that always books the cheapest seat (with the right section).
 MAX_PASS_ALWAYS_FLAG = 2
-MAX_PASS_ALWAYS_LOWEST = 3
+MAX_PASS_ALWAYS_LOWEST = 4  # kestrel-loom: the right answer is the lowest fare, and LOWEST_FARE is accepted
 
 # Hand-built duration cases beyond the automatic both-sides tests: (rule, outbound scheduled minutes per
 # flight, layovers, expected True / False / None for unclear).

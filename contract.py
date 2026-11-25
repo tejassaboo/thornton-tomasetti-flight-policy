@@ -80,7 +80,19 @@ class ReasonCode(Enum):
     SENIOR_ROLE_ENTITLEMENT = "SENIOR_ROLE_ENTITLEMENT"
     INTERNATIONAL_LONG_FLIGHT = "INTERNATIONAL_LONG_FLIGHT"
     TRAVELLER_LIMIT_PER_FLIGHT = "TRAVELLER_LIMIT_PER_FLIGHT"
-    # HANDBOOK-SPECIFIC reason codes go below this line (none for this handbook); keep every shared one above.
+    # HANDBOOK-SPECIFIC reason codes go below this line; keep every shared one above.
+    # Decoys: codes for rules of other handbooks that this one lacks, so the list hints at none of its own rules.
+    WEEKEND_TRAVEL_HOME = "WEEKEND_TRAVEL_HOME"
+    WEEKEND_TRIP_NOT_EARNED = "WEEKEND_TRIP_NOT_EARNED"
+    NEXT_OF_KIN_TRAVEL = "NEXT_OF_KIN_TRAVEL"
+    FLY_AMERICA_US_CARRIER_REQUIRED = "FLY_AMERICA_US_CARRIER_REQUIRED"
+    OPEN_SKIES_AGREEMENT = "OPEN_SKIES_AGREEMENT"
+    CREATIVE_TICKETING = "CREATIVE_TICKETING"
+    EXTENDED_TRAVEL_SAVINGS = "EXTENDED_TRAVEL_SAVINGS"
+    DENIED_BOARDING_NOT_ALLOWED = "DENIED_BOARDING_NOT_ALLOWED"
+    CHANCELLOR_WRITTEN_AUTHORIZATION = "CHANCELLOR_WRITTEN_AUTHORIZATION"
+    DOUBLE_BOOKING_PROHIBITED = "DOUBLE_BOOKING_PROHIBITED"
+    PRIVATE_AIRCRAFT_NOT_APPROVED = "PRIVATE_AIRCRAFT_NOT_APPROVED"
 
 
 class TripType(Enum):
@@ -172,8 +184,8 @@ class Scenario(Enum):
 
 
 class Approver(Enum):
-    """Roles that may sign off. NONE: nobody's sign-off is involved. NOT_NAMED: one is needed, but the
-    handbook names no role."""
+    """Roles that may sign off. NONE: the decision relies on no one's sign-off, given or awaited (one for
+    something else may be on file). NOT_NAMED: one is needed, but the handbook names no role."""
 
     NONE = "NONE"
     NOT_NAMED = "NOT_NAMED"
@@ -317,7 +329,7 @@ class SearchInput(Output):
 
 @dataclass
 class SearchOutput(Output):
-    note: Annotated[str, "Where the offers come from"]
+    note: Annotated[str, "Where the offers come from, and a word when this case lists none for the search"]
     currency: Annotated[str, "The currency of every fare, as an ISO code"]
     offers: Annotated[list[Offer], "Every offer leaving on that local date, in departure order"]
 
@@ -326,7 +338,7 @@ class SearchOutput(Output):
 class BookingOutput(Output):
     decision: Annotated[
         Decision,
-        "BOOK: buy offer_id now. REFUSE: buy nothing, because the company buys no ticket at all for this trip. "
+        "BOOK: buy offer_id now. REFUSE: buy nothing, because the organisation buys no ticket at all for this request. "
         "FLAG_FOR_APPROVAL: hold offer_id and buy nothing yet, because someone must approve it first or "
         "the handbook's words leave the answer open",
     ]
@@ -335,8 +347,9 @@ class BookingOutput(Output):
     reason_code: Annotated[ReasonCode, "Why, from the closed list"]
     approver: Annotated[
         Approver,
-        "The role whose sign-off this decision relies on or still waits for; NONE when it needs nobody's; "
-        "NOT_NAMED when a sign-off is needed but the handbook names no role",
+        "The role whose sign-off this decision relies on, whether already on file or still awaited; NONE when "
+        "this decision relies on no one's sign-off, even if a sign-off for something else is on file; NOT_NAMED "
+        "when a sign-off is needed but the handbook names no role",
     ]
     clause: Annotated[Clause, "The handbook section the decision rests on"]
 

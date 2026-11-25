@@ -98,7 +98,8 @@
             "cabin": "BUSINESS",
             "fare_cents": 560000
           }
-        ]
+        ],
+        "background": 3
       }
     ]
   },
@@ -115,6 +116,7 @@
       "UPGRADE_NOT_ELIGIBLE"
     ],
     "approvers": [
+      "MANAGING_PRINCIPAL",
       "NONE"
     ],
     "clauses": [

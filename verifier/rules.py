@@ -161,6 +161,17 @@ def solve(trip, offers, hidden):
     """The answer key for one trip and the offers on its route and date: the decision, and every accepted
     offer id, cabin, reason, approver and section. ``hidden`` (the scenario's answer_key_inputs) is unused
     by this handbook."""
+    key = decide(trip, offers, hidden)
+    if key["decision"] != Decision.FLAG_FOR_APPROVAL and key["approvers"] == [Approver.NONE] and trip.sign_offs:
+        # A sign-off on file that this decision does not use (quartz-hollow, yarrow-mosaic: the better cabin it
+        # approves is not allowed): the decision relies on no one's, so NONE, but readers split on whether a
+        # sign-off on file is "relied on", so its role is accepted too.
+        key["approvers"] = by_value([Approver.NONE, *(record.role for record in trip.sign_offs)])
+    return key
+
+
+def decide(trip, offers, hidden):
+    """solve's answer, before the approvers of sign-offs on file that the decision does not use are added."""
     if hidden:
         raise ValueError("this handbook's scenarios carry no answer_key_inputs")
     if trip.passenger == Passenger.SPOUSE_OR_FAMILY:
@@ -212,8 +223,9 @@ def route(trip, bookable, lowest):
         return answer(Decision.BOOK, nonstops, [ReasonCode.ALTERNATE_ROUTE_WITHIN_MARGIN], [Approver.NONE],
                       [Clause.AIR_ROUTE], f"Lines 239-240, both tests pass ({numbers}).")
     if not percent_ok and not dollars_ok:
-        return answer(Decision.BOOK, lowest, [ReasonCode.ALTERNATE_ROUTE_TOO_EXPENSIVE], [Approver.NONE],
-                      [Clause.AIR_ROUTE], f"Lines 239-240, both tests fail ({numbers}).")
+        # Line 239 "book the lowest logical airfare": LOWEST_FARE is as defensible as the route code.
+        return answer(Decision.BOOK, lowest, [ReasonCode.ALTERNATE_ROUTE_TOO_EXPENSIVE, ReasonCode.LOWEST_FARE],
+                      [Approver.NONE], [Clause.AIR_ROUTE], f"Lines 239-240, both tests fail ({numbers}).")
     return answer(Decision.FLAG_FOR_APPROVAL, nonstops, [ReasonCode.UNCLEAR_POLICY_TEXT], [Approver.NOT_NAMED],
                   [Clause.AIR_ROUTE], f"Lines 239-240, exactly one test passes ({numbers}).",
                   phrase="does not exceed 125% or $100 of the lowest airfare")

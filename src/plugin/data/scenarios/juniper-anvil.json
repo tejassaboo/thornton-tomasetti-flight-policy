@@ -81,7 +81,8 @@
             "cabin": "BUSINESS",
             "fare_cents": 155000
           }
-        ]
+        ],
+        "background": 3
       }
     ]
   },

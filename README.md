@@ -25,7 +25,10 @@ to run with `query: instructions+input`, so a selector sees the traveller's requ
 - **Steps:** `get_trip`, then `search_flights` on the trip's route and date, then `submit` (3 of the 6 hosted steps).
 - **Output:** `BookingOutput`: `decision`, `offer_id` (empty when refusing), `cabin` (`NONE` when
   refusing), `reason_code`, `approver` and `clause`, each from a closed list. The reason list is shared by
-  every handbook plugin and holds codes for rules this handbook lacks; `NOT_NAMED` is the approver when a
+  every handbook plugin and holds codes for rules this handbook lacks, plus decoy codes from other handbooks'
+  rules. The approver is the role whose sign-off the decision relies on, on file or awaited (`SUPERVISOR` in
+  `juniper-anvil` and `umber-skiff`); `NONE` when it relies on none, and where a sign-off on file goes unused
+  (`quartz-hollow`, `yarrow-mosaic`) that role is accepted beside `NONE`; `NOT_NAMED` is the approver when a
   sign-off is needed but the handbook names nobody.
 - **Success:** every field is one the answer key accepts. Score = fields right / 6.
 
@@ -41,14 +44,14 @@ to run with `query: instructions+input`, so a selector sees the traveller's requ
 | `hazel-compass` | boundary_twin | BOOK (morning-economy, ECONOMY) | UPGRADE_NOT_ELIGIBLE | NONE | AIR_CLASS (211-213, 208-209) |
 | `nutmeg-bridge` | boundary_twin | BOOK (first-business, BUSINESS) | UPGRADE_WITHIN_FARE_MARGIN | NONE | AIR_CLASS (215, 217) |
 | `russet-glade` | boundary_twin | BOOK (morning-premium, PREMIUM_ECONOMY) | PREMIUM_ECONOMY_ALLOWED | NONE | AIR_CLASS (211-213) |
-| `yarrow-mosaic` | boundary_twin | BOOK (noon-economy, ECONOMY) | LONG_FLIGHT_CONDITION_NOT_MET or UPGRADE_NOT_ELIGIBLE | NONE | AIR_CLASS (215, 226-233, 208-209) |
+| `yarrow-mosaic` | boundary_twin | BOOK (noon-economy, ECONOMY) | LONG_FLIGHT_CONDITION_NOT_MET or UPGRADE_NOT_ELIGIBLE | MANAGING_PRINCIPAL or NONE | AIR_CLASS (215, 226-233, 208-209) |
 | `garnet-harbor` | multi_rule | BOOK (day-business, BUSINESS) | LONG_FLIGHT_APPROVED | MANAGING_PRINCIPAL | AIR_CLASS (215, 226-233) |
 | `marble-canopy` | multi_rule | BOOK (early-business, BUSINESS) | COST_SAVINGS | NONE | AIR_CLASS (215, 220-222) |
-| `quartz-hollow` | multi_rule | BOOK (day-economy, ECONOMY) | LONG_FLIGHT_CONDITION_NOT_MET or UPGRADE_NOT_ELIGIBLE | NONE | AIR_CLASS (215, 226-233, 208-209) |
+| `quartz-hollow` | multi_rule | BOOK (day-economy, ECONOMY) | LONG_FLIGHT_CONDITION_NOT_MET or UPGRADE_NOT_ELIGIBLE | MANAGING_PRINCIPAL or NONE | AIR_CLASS (215, 226-233, 208-209) |
 | `umber-skiff` | multi_rule | BOOK (first-business, BUSINESS) | NO_ECONOMY_SEATS_URGENT | SUPERVISOR | AIR_CLASS (215, 223-224) |
 | `indigo-meadow` | hidden_clause | BOOK (evening-economy, ECONOMY) | UPGRADE_COST_NOT_NOMINAL or UPGRADE_NOT_ELIGIBLE | NONE | AIR_CLASS (211-213, 208-209) |
 | `timber-cairn` | hidden_clause | BOOK (am-business, BUSINESS) | TRAVELER_PAYS_UPGRADE | NONE | AIR_CLASS (215, 225) |
-| `kestrel-loom` | distractor | BOOK (dallas-economy, ECONOMY) | ALTERNATE_ROUTE_TOO_EXPENSIVE | NONE | AIR_ROUTE (239-240) |
+| `kestrel-loom` | distractor | BOOK (dallas-economy, ECONOMY) | ALTERNATE_ROUTE_TOO_EXPENSIVE or LOWEST_FARE | NONE | AIR_ROUTE (239-240) |
 | `saffron-wharf` | distractor | BOOK (direct-economy, ECONOMY) | ALTERNATE_ROUTE_WITHIN_MARGIN | NONE | AIR_ROUTE (239-240) |
 | `cedar-lantern` | refusal | REFUSE (none, NONE) | PERSONAL_TRAVEL_NOT_COVERED | NONE | NOT_REIMBURSABLE or PERSONAL_TRAVEL (556, 571) |
 | `pewter-delta` | refusal | REFUSE (none, NONE) | COMPANION_NOT_COVERED | NONE | PERSONAL_TRAVEL or NOT_REIMBURSABLE (459-461, 556, 570) |
@@ -68,7 +71,7 @@ hold, which is never the same as "no compliant offer".
 |---|---|---|
 | `booking_requirements` | The trip record's fields, the world's conventions (local times, dates, fares, sold-out seats) and its airports | `src/plugin/guide.py` |
 | `get_trip` | A case's request and trip record: traveller, route, dates, purpose, requested cabin and routing, sign-offs, earlier flights | `src/plugin/tools.py` |
-| `search_flights` | Every offer on a route and local date (one way, or round trip with `return_date`): pinned scenario offers plus seeded background offers | `src/plugin/world.py` |
+| `search_flights` | Every offer on a route and local date (one way, or round trip with `return_date`): the pinned scenario offers plus seeded background offers on those searches only; a search the case does not pin lists nothing and says so | `src/plugin/world.py` |
 | `solve_booking` | The answer key (`rules.solve`), the agent task's `reference`, never shown to the agent | `src/plugin/rules.py` |
 
 | Task | Does | Runner |
